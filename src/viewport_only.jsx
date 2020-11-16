@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import VisibilitySensor from 'react-visibility-sensor'
-import CustomPropTypes from 'components/custom_prop_types'
+import CustomPropTypes from './custom_prop_types'
 
 const ViewportOnly = ({ children, placeholder }) => {
   const [visible, setVisible] = useState(true)

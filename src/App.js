@@ -2,9 +2,17 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import SortableTableHeader from './sortable_table_header'
 import { useTableSorting, tableSort } from './sortable_tables'
+import Repeat from './repeat'
+import ViewportOnly from './viewport_only'
 
 import './App.css'
 import './tailwind.output.css'
+
+const SkeletonRow = () => (
+  <tr className="border min-h-4">
+    <Repeat times={7}><td className="py-2">&nbsp;</td></Repeat>
+  </tr>
+)
 
 function App() {
   const [sortKey, sortOrder, updateSorting] = useTableSorting('fname')
@@ -24,8 +32,8 @@ function App() {
 
   return (
     <div className="App w-full">
-      <table className="w-3/5 table-auto mx-auto">
-        <thead className="bg-gray-700 text-white w-full">
+      <table className="w-4/5 mt-20 table-fixed mx-auto">
+        <thead className="bg-gray-700 text-white">
           <th className="px-4 py-2" /> {/* image */}
           <SortableTableHeader
             onClick={() => updateSorting('num')}
@@ -87,29 +95,31 @@ function App() {
             weight,
             weaknesses,
           }) => (
-            <tr key={num} className="border">
-              <td className="py-2">
-                <img src={img} alt={name} className="object-scale-down"/>
-              </td>
-              <td>
-                {num}
-              </td>
-              <td>
-                {name}
-              </td>
-              <td>
-                {type.join(',')}
-              </td>
-              <td>
-                {height}
-              </td>
-              <td>
-                {weight}
-              </td>
-              <td>
-                { weaknesses.join(',')}
-              </td>
-            </tr>
+            <ViewportOnly placeholder={<SkeletonRow />}>
+              <tr key={num} className="border">
+                <td className="py-2">
+                  <img src={img} alt={name} className="object-scale-down"/>
+                </td>
+                <td>
+                  {num}
+                </td>
+                <td>
+                  {name}
+                </td>
+                <td>
+                  {type.join(',')}
+                </td>
+                <td>
+                  {height}
+                </td>
+                <td>
+                  {weight}
+                </td>
+                <td>
+                  { weaknesses.join(',')}
+                </td>
+              </tr>
+          </ViewportOnly>
           ))}
         </tbody>
       </table>
