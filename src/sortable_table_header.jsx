@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import CustomPropTypes from 'components/custom_prop_types'
+import CustomPropTypes from './custom_prop_types'
 
 const SortableTableHeader = ({
   onClick,
@@ -14,7 +14,7 @@ const SortableTableHeader = ({
     >
       {children}
       {selected ? (
-        <i className={`glyphicon ${sortOrder === 'asc' ? 'glyphicon-triangle-top' : 'glyphicon-triangle-bottom'}`} />
+        <i>{sortOrder === 'asc' ? String.fromCharCode(9650) : String.fromCharCode(9660)}</i> 
       ) : null }
     </th>
   )
