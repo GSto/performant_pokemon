@@ -7,10 +7,11 @@ const SortableTableHeader = ({
   selected,
   sortOrder,
   children,
+  className = '',
 }) => (
     <th
       onClick={onClick}
-      className={selected ? 'sorting' : null}
+      className={selected ? className + ' sorting' : className}
     >
       {children}
       {selected ? (

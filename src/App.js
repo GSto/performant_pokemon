@@ -3,6 +3,7 @@ import SortableTableHeader from './sortable_table_header'
 import { useTableSorting, tableSort } from './sortable_tables'
 
 import './App.css'
+import './tailwind.output.css'
 
 const testData = [
   {
@@ -37,8 +38,8 @@ function App() {
   const [tableData] = useState(testData)
 
   return (
-    <div className="App">
-      <table>
+    <div className="App w-64 mx-auto">
+      <table className="w-full">
         <thead>
           <SortableTableHeader
             onClick={() => updateSorting('fname')}
@@ -51,14 +52,14 @@ function App() {
             onClick={() => updateSorting('lname')}
             selected={sortKey === 'lname'}
             sortOrder={sortOrder}
-            >
+          >
             Last Name
           </SortableTableHeader>
           <SortableTableHeader
             onClick={() => updateSorting('score')}
             selected={sortKey === 'score'}
             sortOrder={sortOrder}
-            >
+          >
             Score
           </SortableTableHeader>
         </thead>
