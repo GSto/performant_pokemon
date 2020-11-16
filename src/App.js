@@ -107,7 +107,7 @@ function App() {
                   {name}
                 </td>
                 <td>
-                  {type.join(',')}
+                  {type.join(', ')}
                 </td>
                 <td>
                   {height}
@@ -116,7 +116,7 @@ function App() {
                   {weight}
                 </td>
                 <td>
-                  { weaknesses.join(',')}
+                  { weaknesses.join(', ')}
                 </td>
               </tr>
           </ViewportOnly>
