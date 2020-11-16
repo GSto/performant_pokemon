@@ -62,6 +62,15 @@ function App() {
             Score
           </SortableTableHeader>
         </thead>
+        <tbody>
+          { tableData.map(({ fname, lname, score }) => (
+            <tr>
+              <td>{ fname }</td>
+              <td>{ lname }</td>
+              <td>{ score }</td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );
