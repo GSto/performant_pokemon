@@ -5,6 +5,8 @@ export const component = PropTypes.oneOfType([
   PropTypes.node,
 ])
 
-export default {
+const defaults = {
   component,
 }
+
+export default defaults

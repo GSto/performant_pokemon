@@ -45,8 +45,10 @@ export const tableCompare = (a, b, key = null, order = 'asc') => {
 // sort an array of objects based on a certain key + direction
 export const tableSort = (arr, key = null, order = 'asc') => arr.sort((a, b) => tableCompare(a, b, key, order))
 
-export default {
+const defaults = {
   useTableSorting,
   tableSort,
   tableCompare,
 }
+
+export default defaults 

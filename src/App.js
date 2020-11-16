@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import SortableTableHeader from './sortable_table_header'
-import { useTableSorting } from './sortable_tables'
+import { useTableSorting, tableSort } from './sortable_tables'
 
 import './App.css'
 
@@ -34,7 +34,7 @@ const testData = [
 
 function App() {
   const [sortKey, sortOrder, updateSorting] = useTableSorting('fname')
-  const [tableData, setTableData] = useState(testData)
+  const [tableData] = useState(testData)
 
   return (
     <div className="App">
@@ -63,7 +63,7 @@ function App() {
           </SortableTableHeader>
         </thead>
         <tbody>
-          { tableData.map(({ fname, lname, score }) => (
+          { tableSort(tableData, sortKey, sortOrder).map(({ fname, lname, score }) => (
             <tr>
               <td>{ fname }</td>
               <td>{ lname }</td>
