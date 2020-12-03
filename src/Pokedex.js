@@ -1,7 +1,7 @@
-import SortableTableHeader from './sortable_table_header'
-import { useTableSorting, tableSort } from './sortable_tables'
-import ViewportOnly from './viewport_only'
-import Repeat from './repeat'
+import SortableTableHeader from './SortableTableHeader'
+import { useTableSorting, tableSort } from './SortableTables'
+import ViewportOnly from './ViewportOnly'
+import Repeat from './Repeat'
 
 export function SkeletonRow() {
   return (
