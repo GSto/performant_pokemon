@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import Pokedex from './pokedex'
 
-jest.mock('./viewport_only', () => ({
+jest.mock('./ViewportOnly', () => ({
   __esModule: true,
   default: ({ children }) => children
 }))
@@ -20,7 +20,7 @@ function buildPokemon(attributes) {
 }
 
 describe('pokedex', () => {
-  it('sorts by number by default', async () => {
+  it('sorts by number by default', () => {
     const pokemon = [
       buildPokemon({
         name: 'Mew',
@@ -33,12 +33,12 @@ describe('pokedex', () => {
     ]
 
     render(<Pokedex pokemon={pokemon} />)
-    const rows = await screen.getAllByTestId('row')
+    const rows = screen.getAllByTestId('row')
     expect(rows[0]).toHaveTextContent('Charizard')
     expect(rows[1]).toHaveTextContent('Mew')
   })
 
-  it('can sort by name', async () => {
+  it('can sort by name', () => {
     const pokemon = [
       buildPokemon({
         name: 'Zubat',
@@ -49,9 +49,9 @@ describe('pokedex', () => {
     ]
 
     render(<Pokedex pokemon={pokemon} />)
-    fireEvent.click(await screen.getByText(/name/i))
+    fireEvent.click(screen.getByText(/name/i))
 
-    const rows = await screen.getAllByTestId('row')
+    const rows = screen.getAllByTestId('row')
     expect(rows[0]).toHaveTextContent('Abra')
     expect(rows[1]).toHaveTextContent('Zubat')
   })

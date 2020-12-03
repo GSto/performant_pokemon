@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-import Pokedex from './Pokedex'
+import PokedexV2 from './PokedexV2'
 
 import './App.css'
 import './tailwind.output.css'
@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App w-full">
       <h1>Pokemeon sortable table demo</h1>
-      <Pokedex pokemon={pokemon} />
+      <PokedexV2 pokemon={pokemon} />
     </div>
   );
 }
