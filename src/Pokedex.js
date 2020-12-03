@@ -12,7 +12,7 @@ export function SkeletonRow() {
 }
 
 export default function Pokedex({ pokemon }) {
-  const [sortKey, sortOrder, updateSorting] = useTableSorting('fname')
+  const [sortKey, sortOrder, updateSorting] = useTableSorting('num')
   return (
     <table className="w-4/5 mt-20 table-fixed mx-auto">
       <thead className="bg-gray-700 text-white">
@@ -68,7 +68,7 @@ export default function Pokedex({ pokemon }) {
           </SortableTableHeader>
         </tr>
       </thead>
-    <tbody>
+      <tbody>
       { tableSort(pokemon, sortKey, sortOrder).map(({
         img,
         num,
@@ -79,7 +79,7 @@ export default function Pokedex({ pokemon }) {
         weaknesses,
       }) => (
         <ViewportOnly placeholder={<SkeletonRow />}>
-          <tr key={num} className="border">
+          <tr key={num} className="border" data-testid='row'>
             <td className="py-2">
               <img src={img} alt={name} className="object-scale-down"/>
             </td>
@@ -102,7 +102,7 @@ export default function Pokedex({ pokemon }) {
               { weaknesses.join(', ')}
             </td>
           </tr>
-      </ViewportOnly>
+        </ViewportOnly>
       ))}
     </tbody>
   </table>
