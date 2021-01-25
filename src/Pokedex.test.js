@@ -56,3 +56,12 @@ describe('pokedex', () => {
     expect(rows[1]).toHaveTextContent('Zubat')
   })
 })
+
+test('sorts data by defaultKey', () => {
+  const mock = jest.fn
+  render(<SortableTable>
+    { mock(sorted, headerProps) }
+    </SortableTable>
+  )
+  expect(mock).toHaveBeenCalledWith(expected, expectedHeaderProps)
+})
