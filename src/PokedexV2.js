@@ -1,7 +1,7 @@
 import SortableTableV2 from "./SortableTableV2";
 import SortableTableHeader from "./SortableTableHeader";
 import ViewportOnly from "./ViewportOnly";
-import Repeat from "./Repeat";
+import Repeat from "./repeat";
 
 export function SkeletonRow() {
   return (
